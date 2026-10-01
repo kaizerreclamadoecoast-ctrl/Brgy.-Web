@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECOAST — Engineering &amp; IT Programs</title>
+<meta name="description" content="ECOAST offers BS Information Technology, Computer Science, Civil, Computer, Electrical and Electronics Engineering — built for builders, coded by the coast.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2545;
+    --navy-deep:#071A33;
+    --sand:#F6F1E7;
+    --sand-line:#E4DCC9;
+    --teal:#1E6E73;
+    --copper:#C1793B;
+    --ink:#16202B;
+    --ink-soft:#4A5560;
+    --white:#FFFFFF;
+    --radius: 2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.mono,nav,.btn,.tag{font-family:'Space Grotesk', 'Segoe UI', sans-serif;}
+  h1,h2,h3{margin:0 0 0.4em 0; color:var(--navy); font-weight:600; line-height:1.15;}
+  p{margin:0 0 1em 0; max-width:62ch; color:var(--ink-soft);}
+  a{color:inherit;}
+  img,svg{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  :focus-visible{outline:2px solid var(--copper); outline-offset:3px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(246,241,231,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--sand-line);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1120px; margin:0 auto;
+  }
+  .logo{
+    font-weight:700; font-size:1.25rem; letter-spacing:0.01em; color:var(--navy);
+    text-decoration:none; display:flex; align-items:baseline; gap:2px;
+  }
+  .logo span{color:var(--copper);}
+  nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0;}
+  nav a{text-decoration:none; font-size:0.95rem; color:var(--ink); border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .15s ease;}
+  nav a:hover{border-color:var(--copper);}
+  .nav-cta{
+    display:inline-block; background:var(--navy); color:var(--white); text-decoration:none;
+    padding:9px 18px; font-size:0.9rem; border:1px solid var(--navy); border-radius:var(--radius);
+  }
+  .nav-cta:hover{background:var(--navy-deep);}
+  @media (max-width:760px){
+    nav ul{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 62%, #164A57 100%);
+    color:var(--white); padding:96px 0 120px;
+  }
+  .hero-grid{
+    position:absolute; inset:0; opacity:0.14;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.5) 0, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 64px);
+    pointer-events:none;
+  }
+  .hero-horizon{
+    position:absolute; left:0; right:0; bottom:-2px; height:160px; pointer-events:none;
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .tag{
+    display:inline-block; font-size:0.85rem; color:#CFE3E6; border:1px solid rgba(255,255,255,0.28);
+    padding:5px 12px; border-radius:20px; margin-bottom:26px;
+  }
+  .hero h1{
+    color:var(--white); font-size:clamp(2.3rem, 5vw, 3.6rem); max-width:16ch; margin-bottom:0.3em;
+  }
+  .hero p.lede{
+    color:#D9E3E6; font-size:1.15rem; max-width:52ch; font-family:'Source Serif 4', serif;
+  }
+  .hero-actions{display:flex; gap:16px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; text-decoration:none; padding:13px 26px; font-size:0.98rem;
+    border-radius:var(--radius); border:1px solid transparent; font-weight:500;
+  }
+  .btn-primary{background:var(--copper); color:var(--navy-deep); border-color:var(--copper);}
+  .btn-primary:hover{background:#D68A4E;}
+  .btn-ghost{color:var(--white); border-color:rgba(255,255,255,0.45);}
+  .btn-ghost:hover{border-color:var(--white); background:rgba(255,255,255,0.06);}
+
+  .hero-stats{
+    display:flex; gap:48px; margin-top:64px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.18);
+    flex-wrap:wrap;
+  }
+  .stat b{display:block; font-family:'Space Grotesk'; font-size:1.8rem; color:var(--white); font-weight:600;}
+  .stat span{font-size:0.88rem; color:#B7C6CB;}
+
+  /* ---------- Section shells ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:56ch; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.3rem);}
+
+  /* ---------- Why ---------- */
+  .why-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    border-top:1px solid var(--sand-line);
+  }
+  .why-item{
+    padding:32px 28px 32px 0; border-bottom:1px solid var(--sand-line);
+  }
+  .why-item:not(:last-child){border-right:1px solid var(--sand-line); padding-right:28px;}
+  .why-item h3{font-size:1.15rem; margin-bottom:0.5em;}
+  .why-item svg{width:34px; height:34px; margin-bottom:18px; color:var(--teal);}
+  @media (max-width:820px){
+    .why-grid{grid-template-columns:1fr;}
+    .why-item{border-right:none !important; padding:28px 0;}
+  }
+
+  /* ---------- Programs (spec-sheet table) ---------- */
+  .programs{background:var(--white); border-top:1px solid var(--sand-line); border-bottom:1px solid var(--sand-line);}
+  .prog-table{width:100%; border-collapse:collapse;}
+  .prog-row{
+    display:grid; grid-template-columns:120px 1.4fr 2fr 110px; gap:24px;
+    align-items:baseline; padding:26px 0; border-bottom:1px solid var(--sand-line);
+  }
+  .prog-row.head{
+    font-family:'Space Grotesk'; font-size:0.82rem; color:var(--ink-soft);
+    padding-bottom:14px; border-bottom:1px solid var(--ink);
+  }
+  .prog-code{font-family:'Space Grotesk'; font-weight:600; color:var(--copper); font-size:0.95rem; letter-spacing:0.02em;}
+  .prog-name{font-family:'Space Grotesk'; font-weight:600; color:var(--navy); font-size:1.05rem;}
+  .prog-desc{color:var(--ink-soft); font-size:0.97rem; margin:0;}
+  .prog-dur{font-family:'Space Grotesk'; font-size:0.9rem; color:var(--ink-soft); text-align:right;}
+  @media (max-width:700px){
+    .prog-row{grid-template-columns:1fr; gap:6px; padding:22px 0;}
+    .prog-row.head{display:none;}
+    .prog-dur{text-align:left; margin-top:6px;}
+  }
+
+  /* ---------- Admissions band ---------- */
+  .admit{
+    background:var(--teal); color:var(--white);
+    display:grid; grid-template-columns:1.3fr 1fr; gap:56px; align-items:center;
+  }
+  .admit h2{color:var(--white);}
+  .admit p{color:#DCEBEC;}
+  .admit-list{list-style:none; margin:0; padding:0; font-size:0.97rem;}
+  .admit-list li{
+    padding:14px 0; border-top:1px solid rgba(255,255,255,0.22); color:#E7F0F1;
+  }
+  .admit-list li:last-child{border-bottom:1px solid rgba(255,255,255,0.22);}
+  @media (max-width:820px){
+    .admit{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Footer / contact ---------- */
+  footer{background:var(--navy-deep); color:#C9D6DA; padding:72px 0 40px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; margin-bottom:56px;}
+  footer h3{color:var(--white); font-size:1.05rem; margin-bottom:0.8em;}
+  footer p{color:#A9B9BE; font-size:0.95rem;}
+  footer a{color:#C9D6DA; text-decoration:none; font-size:0.95rem;}
+  footer a:hover{color:var(--copper);}
+  .foot-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,0.12); padding-top:24px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:0.85rem; color:#7F8E93;
+  }
+  @media (max-width:760px){
+    .foot-grid{grid-template-columns:1fr; gap:32px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row wrap" style="padding-left:0; padding-right:0;">
+    <a href="#top" class="logo">EC<span>O</span>AST</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#why">Why Ecoast</a></li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="#admissions">Apply now</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top:0;">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <svg class="hero-horizon" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 C200,90 320,140 520,100 C700,66 820,120 1000,90 C1100,74 1160,96 1200,88 L1200,160 L0,160 Z" fill="#0E3350" opacity="0.65"/>
+      <path d="M0,140 C180,120 380,150 560,124 C760,96 900,140 1080,116 C1140,108 1170,118 1200,112 L1200,160 L0,160 Z" fill="#123B5C" opacity="0.85"/>
+    </svg>
+    <div class="wrap hero-inner" style="padding-top:96px;">
+      <span class="tag">Undergraduate Engineering &amp; IT Programs</span>
+      <h1>Where the coastline meets the circuit board.</h1>
+      <p class="lede">ECOAST trains the people who will build, wire, code and design what comes next — six bachelor's programs spanning software, structures and systems, taught by faculty who still work in the field.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#programs">Explore the six programs</a>
+        <a class="btn btn-ghost" href="#admissions">See admissions requirements</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>6</b><span>Bachelor's programs</span></div>
+        <div class="stat"><b>4 yrs</b><span>Standard track length</span></div>
+        <div class="stat"><b>100%</b><span>Lab &amp; fieldwork component</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Built for people who'd rather build than watch.</h2>
+        <p>Every ECOAST program pairs classroom fundamentals with hands-on work — in a lab, on a site, or in a codebase — from the first year.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 20 L9 9 L13 15 L16 10 L21 20 Z"/><path d="M3 20 H21"/></svg>
+          <h3>Faculty from the field</h3>
+          <p>Instructors who currently practice — site engineers, working developers, licensed electricians — teaching what they use, not just what's printed.</p>
+        </div>
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21 H16 M12 17 V21"/></svg>
+          <h3>Real labs, real tools</h3>
+          <p>Structural, circuit, and software labs stocked for actual project work — not demonstrations behind glass.</p>
+        </div>
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4 V12 L17 15"/></svg>
+          <h3>Programs that cross over</h3>
+          <p>Shared first-year coursework across engineering and IT tracks, so switching lanes early doesn't cost you a year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs" class="programs">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Six programs, one campus.</h2>
+        <p>Each is a full bachelor's degree. Codes below match the ones you'll see on your transcript and ID.</p>
+      </div>
+      <div class="prog-table">
+        <div class="prog-row head">
+          <span>Code</span><span>Program</span><span>Focus</span><span style="text-align:right;">Length</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-code">BSIT</span>
+          <span class="prog-name">BS Information Technology</span>
+          <p class="prog-desc">Networks, systems administration and applied software for organizations that run on infrastructure, not just apps.</p>
+          <span class="prog-dur">4 years</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-code">BSCS</span>
+          <span class="prog-name">BS Computer Science</span>
+          <p class="prog-desc">Algorithms, software architecture and the theory underneath — for people who want to build the tools other builders use.</p>
+          <span class="prog-dur">4 years</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-code">BSCE</span>
+          <span class="prog-name">BS Civil Engineering</span>
+          <p class="prog-desc">Structures, materials and site work — roads, buildings and the coastal infrastructure that has to hold.</p>
+          <span class="prog-dur">5 years</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-code">BSCpE</span>
+          <span class="prog-name">BS Computer Engineering</span>
+          <p class="prog-desc">Where hardware meets code — embedded systems, chip-level design and the machines that run the software.</p>
+          <span class="prog-dur">5 years</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-code">BSEE</span>
+          <span class="prog-name">BS Electrical Engineering</span>
+          <p class="prog-desc">Power systems, machines and the grid — from generation down to the wiring in a building.</p>
+          <span class="prog-dur">5 years</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-code">BSECE</span>
+          <span class="prog-name">BS Electronics Engineering</span>
+          <p class="prog-desc">Circuits, signals and communications hardware — the devices that sense, transmit and control.</p>
+          <span class="prog-dur">5 years</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSIONS -->
+  <section id="admissions" class="admit">
+    <div class="wrap">
+      <div class="admit">
+        <div>
+          <h2>Applying is a paper trail, not a mystery.</h2>
+          <p>Admissions run twice a year, ahead of each term. Here's what your file needs before we can review it.</p>
+          <a class="btn btn-primary" href="#contact">Start your application</a>
+        </div>
+        <ul class="admit-list">
+          <li>Completed application form</li>
+          <li>Senior high school report card or its equivalent</li>
+          <li>Certificate of good moral character</li>
+          <li>Two 2x2 ID photos</li>
+          <li>Entrance assessment (scheduled after filing)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo" style="color:var(--white); display:inline-flex;">EC<span style="color:var(--copper);">O</span>AST</a>
+        <p style="margin-top:16px;">A campus for people building along the coast — in code, in circuits, and in concrete.</p>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul class="foot-links">
+          <li><a href="mailto:admissions@ecoast.edu.ph">admissions@ecoast.edu.ph</a></li>
+          <li><a href="tel:+630000000000">(+63) 000 000 0000</a></li>
+          <li><span style="color:#A9B9BE;">Campus address — add here</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul class="foot-links">
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#why">Why Ecoast</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ECOAST. All rights reserved.</span>
+      <span>Placeholder contact details — update before launch.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
